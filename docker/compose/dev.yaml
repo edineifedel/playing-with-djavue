@@ -25,10 +25,10 @@ services:
       - '3001:3001'
     volumes:
       - ../..:/app
-  # nginx:
-  #   image: nginx
-  #   network_mode: "host"
-  #   volumes:
-  #     - ../nginx/default_local:/etc/nginx/conf.d/default.conf
-  #   ports:
-  #     - 80:80
+  nginx:
+    image: nginx
+    network_mode: "host"
+    volumes:
+      - ../nginx/default_local:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
