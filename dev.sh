@@ -109,6 +109,11 @@ function dkpgnginx {
 function dkup {
     CD=$(pwd)
     cd $PROJ_BASE
+    docker run -d \
+        --name nginx \
+        -p 80:80 \
+        -v ~/Development/dejavue/jabuticaba/docker/nginx/default_local:/etc/nginx/conf.d/default.conf \
+        nginx
     docker-compose -f docker/compose/dev.yaml up
     exitcode=$?
     cd $CD
