@@ -19,6 +19,7 @@ CD=$(pwd)
 cd $PROJ_BASE
 export PROJ_BASE=$(pwd)
 cd $CD
+echo $PROJ_BASE
 
 #. ci/funcs.sh
 
@@ -112,7 +113,7 @@ function dkup {
     docker run -d \
         --name nginx \
         -p 80:80 \
-        -v ~/Development/dejavue/jabuticaba/docker/nginx/default_local:/etc/nginx/conf.d/default.conf \
+        -v $PROJ_BASE/docker/nginx/default_local:/etc/nginx/conf.d/default.conf \
         nginx
     docker-compose -f docker/compose/dev.yaml up
     exitcode=$?
